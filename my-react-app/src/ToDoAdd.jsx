@@ -7,6 +7,7 @@ function Add({AddTodo}){
     const [body,setBody] = useState("")
 
     const Submit = (e) => {
+        e.preventDefault();
         AddTodo({title,body});
         setTitle("");
         setBody("");
@@ -27,7 +28,7 @@ function Add({AddTodo}){
                 onChange= {(e) => setBody(e.target.value)}
                 required
             />
-            <button type = "submit">Add Todo</button>
+            <button type = "submit">Add</button>
         </form>
     );
 
