@@ -20,7 +20,7 @@ function todoitem({todo,deleteTodo,toggletodo,updatetodo}){
                         value={newtitle}
                         onChange={(e) => setnewtitle(e.target.value)}
                     />
-                    <textarea
+                    <input
                         value ={newbody}
                         onChange = {(e) => setnewbody(e.target.value)}
                     />
@@ -28,9 +28,9 @@ function todoitem({todo,deleteTodo,toggletodo,updatetodo}){
                 </>
             ) : (
                 <>
-                    <h3 style ={{ textDecoration: todo.done ? "line-through" : "none"}}>
+                    <h2 style ={{ textDecoration: todo.done ?"line-through" : "none"}}>
                         {todo.title}
-                    </h3>
+                    </h2>
                     <p>{todo.body}</p>
                     <button onClick={() =>toggletodo(todo.id)}>
                         {todo.done ? "Undo" :"Done"}
