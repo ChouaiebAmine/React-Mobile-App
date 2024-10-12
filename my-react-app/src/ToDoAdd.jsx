@@ -18,13 +18,13 @@ function Add({AddTodo}){
             <input
                 type ='text'
                 placeholder='Title'
-                value ='Title'
+                value ={title}
                 onChange ={(e) => setTitle(e.target.value)}
                 required
             />
-            <textarea
+            <input
                 placeholder='description'
-                value = 'body'
+                value = {body}
                 onChange= {(e) => setBody(e.target.value)}
                 required
             />
