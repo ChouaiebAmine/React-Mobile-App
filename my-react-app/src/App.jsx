@@ -26,6 +26,21 @@ function App() {
     setTodos(todos.map(todo => (todo.id ===id ? {...todo,done:!todo.done}:todo)));
   }
 
+  const changeposDown =(index) => {
+    if (index === todos.length - 1) return;
+    const newTodos = [...todos];
+    [newTodos[index + 1],newTodos[index]] = [newTodos[index],newTodos[index + 1]];
+    setTodos(newTodos);
+  };
+  const changeposUp = (index) => {
+    if (index === 0) return;
+    const newTodos = [...todos];
+    [newTodos[index - 1],newTodos[index]] = [newTodos[index],newTodos[index - 1]];
+    setTodos(newTodos);
+  };
+
+
+
   return (
     <div className='app'>
       <h1>TodoListApp</h1>
@@ -35,6 +50,8 @@ function App() {
         deleteTodo={deleteTodo}
         toggletodo={toggletodo}
         updatetodo={updateTodo}
+        changeposUp={changeposUp}
+        changeposDown={changeposDown}
       />
     </div>
   )

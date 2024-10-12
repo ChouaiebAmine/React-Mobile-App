@@ -1,10 +1,11 @@
 import react,{useState} from 'react'
 
-function todoitem({todo,deleteTodo,toggletodo,updatetodo}){
+function todoitem({todo,index,todoslength,deleteTodo,toggletodo,updatetodo,changeposUp,changeposDown}){
 
     const [IsEditing, setisediting] = useState(false);
     const [newtitle,setnewtitle] = useState(todo.title);
     const [newbody,setnewbody]= useState(todo.body)
+    
 
     const update = () => {
         updatetodo(todo.id,{title:newtitle,body:newbody});
@@ -37,6 +38,9 @@ function todoitem({todo,deleteTodo,toggletodo,updatetodo}){
                     </button>
                     <button onClick={()=>setisediting(true)}>Edit</button>
                     <button onClick={()=>deleteTodo(todo.id)}>Delete</button>
+
+                    <button onClick={()=>changeposUp(index)} disabled = {index === 0}>Up</button>
+                    <button onClick={()=> changeposDown(index)} disabled = {index === todoslength }>Down</button>
                 </>
             )}
         </li>
